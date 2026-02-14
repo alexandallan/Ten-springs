@@ -3,4 +3,10 @@ target = "thumbv7em-none-eabihf"
 
 [target.thumbv7em-none-eabihf]
 runner = "probe-rs run --chip MIMXRT1060"
-rustflags = ["-C", "link-arg=-Timxrt-link.x", "-C", "link-arg=-Tdevice.x"]
+rustflags = [
+    "-C", "link-arg=-Timxrt-link.x",
+    "-C", "link-arg=-Tdevice.x",
+]
+
+[env]
+DEFMT_LOG = "info"

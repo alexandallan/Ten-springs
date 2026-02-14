@@ -3,10 +3,19 @@ name = "rt1060-modern-blinky"
 version = "0.1.0"
 edition = "2021"
 
+[features]
+default = ["defmt-logging"]
+defmt-logging = ["dep:defmt", "dep:defmt-rtt", "dep:panic-probe"]
+
 [dependencies]
 # Cortex-M 核心组件
-cortex-m = "0.7"
+cortex-m = { version = "0.7", features = ["critical-section-single-core"] }
 panic-halt = "0.2"
+
+# defmt 日志（默认启用，可通过 --no-default-features 关闭）
+defmt = { version = "1.0", optional = true }
+defmt-rtt = { version = "1.1", optional = true }
+panic-probe = { version = "1.0", features = ["print-defmt"], optional = true }
 
 # 现代 i.MX RT 生态
 imxrt-ral = { version = "0.5", features = ["imxrt1062", "rt"] } # 寄存器层
