@@ -1,0 +1,18 @@
+[package]
+name = "rt1060-modern-blinky"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# Cortex-M 核心组件
+cortex-m = "0.7"
+panic-halt = "0.2"
+
+# 现代 i.MX RT 生态
+imxrt-ral = { version = "0.5", features = ["imxrt1062", "rt"] } # 寄存器层
+imxrt-hal = { version = "0.5", features = ["imxrt1060"] } # 硬件抽象层
+imxrt-rt = { version = "0.1", features = ["device"] }     # 启动与内存路由
+imxrt1060evk-fcb = "0.1"                                  # FlexSPI 启动配置块
+
+[build-dependencies]
+imxrt-rt = "0.1"

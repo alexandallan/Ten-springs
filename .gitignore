@@ -1,0 +1,15 @@
+**/*.rs.bk
+.#*
+.gdb_history
+Cargo.lock
+target/
+itm.txt
+datasheets
+**/*.bin
+*.dump
+
+# NXP 资料（PDF/ZIP 较大，不纳入版本控制）
+MIMXRT1060-EVK-资料/
+
+# Claude Code 本地设置
+.claude/
